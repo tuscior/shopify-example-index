@@ -1,0 +1,41 @@
+
+{% assign grid = section.blocks %}
+<div class="collection-grid grid-base">
+{% for element in grid %}
+    <div class="collection-grid--element">
+        <img class="collection-grid--element__image" src={{ element.settings.image | img_url: '450x450' }} />
+        <div class="collection-grid--element__text">
+            <h5 class="collection-grid--element__title">{{ element.settings.title }}</h5>
+            <button class="collection-grid--element__button">{{ element.settings.button }}</button>
+        </div>
+        <div class="layer"></div>
+    </div>
+{% endfor %}
+</div>
+{% schema %}
+    { 
+    "blocks": [
+    {
+        "type": "element",
+        "name": "Single Collection",
+        "settings": [
+            {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+            },
+            {
+                "id": "title",
+                "type": "text",
+                "label": "Pick a title"
+            },
+            {
+                "id": "button",
+                "type": "text",
+                "label": "Pick a button name"
+            }
+        ]
+        }
+    ] 
+}
+{% endschema %}

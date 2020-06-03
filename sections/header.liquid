@@ -1,0 +1,35 @@
+<div class="grid-base">
+    <header class="header">
+        <form class="header__search" name="search" onsubmit="(function(ev){ ev.preventDefault()})(event)">
+            <input type="text"  style="background-image: url({{ 'search.png' | asset_url  }})"  class="header__search--input" name="search input" />
+        </form>
+        {%- if section.settings.logo != blank -%}
+            <div class="header__logo">
+                <img src="{{ section.settings.logo | img_url: '300x300' }}" />
+            </div>
+        {%- endif -%}
+        <div class="header__links">
+            <div class="header__customer">
+                <a class="header__customer--link" href="/register">Register</a> | <a class="header__customer--link" href="/login">My account</a>
+            </div>
+            <div class="header__icons">
+                <a href="/faviourites" class="header__icons--fav">{% include 'icon-hearth' %}</a>
+                <a href="/cart" class="header__icons--cart">{% include 'icon-cart' %}</a>
+            </div>
+        </div>
+    </header>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Header", 
+    "settings": [
+      {
+        "id": "logo",
+        "type": "image_picker",
+        "label": "Header"
+      }
+    ]
+  }
+{% endschema %}

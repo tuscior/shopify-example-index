@@ -1,0 +1,6 @@
+<div class="product-card">
+    <img class="product-card__image" src="{{ prod.images[0] | img_url: '300x300' }}" alt="{{ prod.title }} image"/>
+    <div class="product-card__title">{{ prod.title }} </div>
+    <div class="product-card__price">{{ prod.price | money }}</div>
+    <button class="product-card__button">Shop now</button>
+</div>

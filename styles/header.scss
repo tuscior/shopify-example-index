@@ -1,0 +1,108 @@
+.site-nav {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 25px 0;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    justify-content: space-evenly;
+    @media (min-width: 900px){
+      flex-direction: row;
+    }
+    &__link {
+      display: block;
+      white-space: nowrap;
+      border-bottom: 1px solid transparent;
+      background-color: transparent;
+      padding: 3px 10px;
+      position: relative;
+      &--active {
+          font-weight: bold;
+      }
+    }
+    &__link:hover {
+      border-bottom: 1px solid #d8ff4c
+    }
+    @media (min-width:900px){
+      &__list:hover &__sublist {
+        display: block;
+        position: absolute;
+        background-color: #fff;
+        columns: 2;
+        padding: 10px 30px
+      }
+    }
+
+    &__label {
+      border-bottom: 1px solid transparent;
+    }
+    &__sublist {
+      display: none;
+
+    }
+    &__sublink {
+      padding: 10px;
+      display: block;
+      border-bottom: 1px solid transparent;
+      &:hover {
+        border-bottom: 1px solid #d8ff4c;
+      }
+    }
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+  flex-direction: column;
+  @media (min-width: 900px){
+    flex-direction: row;
+  }
+  &__links { 
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+      @media (min-width: 900px){
+        flex-direction: row;
+      }
+  }
+  &__customer--link:hover {
+      color: #d8ff4c;
+  }
+  &__icons {
+      max-width: 50px;
+      display: flex;
+      margin: 10px 10px;
+      @media (min-width: 900px){
+        margin: 0 10px;
+      }
+  }
+  &__icons--fav {
+      width: 50%;
+      margin: 0 5px;
+      &:hover .icon {
+          fill: #d8ff4c;
+      }
+  }
+  &__icons--cart {
+      width: 50%;
+      &:hover .icon {
+        fill: #d8ff4c;
+      }
+  }
+  &__search {
+    position: relative;
+    height: 30px;
+  }
+  &__search--input {
+    padding-left: 25px;
+    border: 0;
+    border-bottom: 1px solid #2D2E2E;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    padding: 0 0 3px 25px;
+  }
+}

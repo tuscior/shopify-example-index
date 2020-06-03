@@ -1,0 +1,11 @@
+<footer class="footer">
+    <div class="footer-container grid-base">
+        <div class="">
+            <img class="footer-nav--logo" src="{{ 'gitlab.png' | asset_img_url: 'medium' }}" />
+
+            {% include 'footer-nav' %}
+        </div>
+        <div class="newsletter--wrapper">
+            {% section 'newsletter' %}
+        </div>
+</footer> 

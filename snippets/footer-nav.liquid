@@ -1,0 +1,10 @@
+<ul class="footer-nav list--inline">
+    {% for link in linklists['footer'].links %}
+        <li class="footer-nav__link {% if link.active %} footer-nav--active{% endif %}">
+          <a href={{ link.url }} class="footer-nav__link footer-nav__link--main footer-nav__link--button{% if link.child_active %} footer-nav__link--active{% endif %}" type="button" aria-expanded="false" aria-controls="SitefooterLabel-{{ child_list_handle }}">
+            <span class="footer-nav__label">{{ link.title | escape | upcase }}</span>
+          </a>
+        </li>
+    {% endfor %}
+</ul> 
+  

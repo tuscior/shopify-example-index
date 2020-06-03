@@ -1,0 +1,25 @@
+@import "./reset.scss";
+@import "./header.scss";
+@import "./footer.scss";
+@import "./grid.scss";
+@import "./slider.scss";
+
+.grid-base {
+    max-width: 1280px;
+    margin:auto;
+  }
+.relative {
+    position: relative;
+}
+.layer {
+    background-color:#d8ff4c;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.hero__img { 
+    width:100%;
+}

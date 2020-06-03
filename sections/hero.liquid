@@ -1,0 +1,17 @@
+<div class="hero">
+  <img class="hero__img" src="{{ section.settings.image | img_url: '1024x' }}" />
+</div>
+
+{% schema %}
+{
+  "name": "Image with text overlay",
+  "class": "index-section index-section--flush",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

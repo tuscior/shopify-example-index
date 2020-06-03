@@ -1,0 +1,75 @@
+{% assign grid = section.blocks %}
+    <div class="product-slider__title">
+      <span class="product-slider__caption--line"></span>
+          <h5 class="product-slider__caption">{{ section.settings.title | upcase }}</h5>
+      <span class="product-slider__caption--line"></span>
+    </div>
+    <div class="grid-base relative">
+      <div id="slider-new">
+      {% for element in grid %}
+          {% assign prod = all_products[element.settings.handle] %}
+          <div class="image-grid--element">
+            {% include 'product-card' prod: prod %}
+          </div>
+      {% endfor %}
+
+      </div>
+      <ul class="controls" id="customize-controls" aria-label="Carousel Navigation" tabindex="0">
+        <li class="prev" aria-controls="customize" tabindex="-1" data-controls="prev">
+          &#8249;
+        </li>
+        <li class="next" aria-controls="customize" tabindex="-1" data-controls="next">
+          &#8250;
+        </li>
+      </ul>
+  </div>
+{% javascript %}
+  const slider = tns({
+    container: '#slider-new',
+    controlsContainer: "#customize-controls",
+    items: 1, 
+    slideBy: 1,
+    arrowKeys: true,
+    responsive: {
+      640: {
+        edgePadding: 20,
+        gutter: 20,
+        items: 2
+      },
+      700: {
+        gutter: 30
+      },
+      900: {
+        items: 4
+      }
+    }
+  });
+{% endjavascript %}
+
+{% schema %}
+  {    
+    "name": "Product New In",
+    "class": "product-new-slider",
+    "settings": [
+        {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "New In"
+        }
+  ],
+    "blocks": [
+      {
+        "type": "element",
+        "name": "Single Product",
+        "settings": [
+          {
+            "id": "handle",
+            "type": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}

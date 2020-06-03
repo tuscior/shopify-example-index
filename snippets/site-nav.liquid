@@ -1,0 +1,20 @@
+<div class="grid-base">
+  <ul class="site-nav list--inline">
+    {% for link in linklists['main-menu'].links %}
+        <li class="site-nav__list {% if link.active %} site-nav__link--active{% endif %}">
+          <a href={{ link.url }} class="site-nav__link {% if link.child_active %} site-nav__link--active{% endif %}" type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
+            <span class="site-nav__label">{{ link.title | escape | upcase }}</span>
+            {% if link.links != blank %}
+              <div class="site-nav__sublist">
+              {% for sublink in link.links %}
+                <a href={{ sublink.url }} class="site-nav__sublink {% if sublink.active %} site-nav__sublink--active{% endif %}" type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
+                  <span class="site-nav__label">{{ sublink.title | escape | upcase }}</span>
+                </a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </a>
+        </li>
+    {% endfor %}
+  </ul>
+</div>

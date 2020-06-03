@@ -1,0 +1,38 @@
+
+{% assign grid = section.blocks %}
+    <h5 class="image-grid--caption">{{ section.settings.title }}</h5>
+    {% for element in grid %}
+        <div class="image-grid--element">
+            <img class="image-grid--element_img" src={{ element.settings.image | img_url: '300x300' }} />
+            <div class="layer">
+            </div>
+            <button class="image-grid--element__button">Shop now</button>
+        </div>
+    {% endfor %}
+{% schema %}
+  {    
+    "name": "Image Grid",
+    "class": "image-grid",
+    "settings": [
+        {
+            "id": "title",
+            "type": "text",
+            "label": "Title",
+            "default": "#KOISKI"
+        }
+  ],
+    "blocks": [
+      {
+        "type": "element",
+        "name": "Single Image",
+        "settings": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}
